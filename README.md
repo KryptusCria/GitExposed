@@ -34,42 +34,48 @@ E daremos um git show no hash ☢️
 
 
 
-✅ Contramedidas para Prevenir a Exposição do.git
-1️⃣ Bloqueio de Acesso ao Diretório .gitno Servidor Web
-A forma mais eficaz de prevenir a exposição é configurar o servidor para impedir o acesso ao diretório .git.
+✅ Vulnerabilidade de Exposição de Repositório Git (.git exposed)
+O que é:
 
-Para Apache ( .htaccess):
-apache
-RewriteEngine on
-RewriteRule ^(.*/)?\.git/ - [F,L]
-Para Nginx:
-nginx
+A vulnerabilidade de exposição de repositório Git, também conhecida como .git exposed, ocorre quando a pasta .git de um projeto, que contém informações sensíveis sobre o histórico de的版本控制, metadados e arquivos de configuração, é acessível publicamente através da web. Isso pode acontecer devido a erros de configuração do servidor web, permissões incorretas ou falta de proteção adequada.
 
+Como encontrar:
 
-location ~ /.git {
-    deny all;
-    return 403;
-}
+Mapeamento de subdomínios: Utilize ferramentas como sublist3r, assetfinder ou serviços online para descobrir subdomínios e URLs relacionados à empresa.
 
-2️⃣ Remover Diretório .gitdo Servidor de Produção
-Se o código já estiver implantado, o diretório .gitnão precisa estar presente no servidor. Você pode removê-lo com:
+Detecção de diretórios .git: Utilize ferramentas como dirsearch, ffuf ou scripts personalizados para verificar se a pasta .git está acessível em URLs como http://exemplo.com/.git/ ou http://exemplo.com/repositorio/.git/.
 
-sh
-rm -rf /caminho/do/site/.git
+Análise de robôs.txt: Verifique o arquivo robots.txt para identificar possíveis diretórios ou arquivos sensíveis que possam estar expostos.
 
-3️⃣ Uso de .gitignorepara Evitar Upload Acidental
-Se o código-fonte estiver sendo versionado dentro de um repositório maior, adicione uma regra para ignorar o .gitnão .gitignore:
+Ferramentas de varredura: Utilize ferramentas de varredura de vulnerabilidades como Nessus, OpenVAS ou Acunetix para identificar automaticamente exposições de repositórios Git.
 
-/.git
+Criticidade:
 
-4️⃣ Verificação Regular com Ferramentas de Segurança
-Use ferramentas como:
+A criticidade dessa vulnerabilidade é considerada alta, pois a pasta .git exposta pode conter informações extremamente sensíveis, como:
 
-GitRob – Analise repositórios em busca de informações confidenciais.
-GitLeaks – Detecta credenciais
+Código fonte: O código fonte completo do projeto pode ser acessado, permitindo que atacantes encontrem vulnerabilidades, compreendam a lógica do sistema e explorem falhas de segurança.
+Histórico de commits: O histórico de commits revela informações sobre as alterações no código, autores, datas e mensagens, o que pode ser usado para obter informações sobre a equipe de desenvolvimento, processos internos e possíveis pontos fracos.
+Credenciais de acesso: Arquivos de configuração podem conter credenciais de acesso a bancos de dados, APIs, servidores e outros recursos, permitindo que atacantes obtenham acesso não autorizado a sistemas críticos.
+Variáveis de ambiente: Variáveis de ambiente podem conter informações sensíveis, como chaves de API, senhas e configurações de produção, que podem ser exploradas por atacantes.
+Contramedidas:
 
+Bloqueio de acesso: Configure o servidor web para bloquear o acesso à pasta .git através de regras de firewall, arquivos .htaccess ou configurações do servidor.
 
+Remoção da pasta .git: Remova a pasta .git do diretório web do servidor, caso ela não seja necessária para o funcionamento do sistema.
 
+Proteção de arquivos de configuração: Criptografe ou proteja com permissões restritas os arquivos de configuração que contêm informações sensíveis, como credenciais de acesso.
 
+Utilização de ferramentas de controle de versão: Utilize ferramentas de controle de versão como Gitlab, Github ou Bitbucket para hospedar os repositórios de código de forma segura, fora do diretório web do servidor.
 
+Auditoria de segurança: Realize auditorias de segurança periódicas para identificar e corrigir possíveis vulnerabilidades, incluindo exposições de repositórios Git.
 
+Treinamento de conscientização: Treine os desenvolvedores e equipes de TI sobre os riscos de exposição de repositórios Git e as melhores práticas de segurança para proteger informações sensíveis.
+
+Impacto em caso de ataque:
+
+Uma empresa que sofre um ataque de Git exposed pode ter diversos impactos negativos, como:
+
+Vazamento de dados: Informações sensíveis, como código fonte, credenciais de acesso e dados de clientes, podem ser expostas e utilizadas por atacantes para fins maliciosos.
+Comprometimento de sistemas: Atacantes podem obter acesso não autorizado a sistemas críticos, como servidores, bancos de dados e APIs, explorando vulnerabilidades encontradas no código fonte ou utilizando credenciais vazadas.
+Interrupção de serviços: Atacantes podem causar interrupções de serviços, como indisponibilidade de websites, sistemas internos ou APIs, afetando a operação da empresa e a experiência dos clientes.
+Danos à reputação: A exposição de informações sensíveis e o comprometimento de sistemas podem causar danos à reputação da empresa, resultando em perda de clientes, processos judiciais e sanções regulatórias.
