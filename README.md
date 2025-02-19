@@ -1,5 +1,7 @@
 # GitExposed
 Encontrando GitExposed 
+
+
 . Primeiro passo varre portas no endereço ip
     
 1. usar wfuzz com lista common.txt
