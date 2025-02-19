@@ -1,39 +1,4 @@
 # GitExposed
-Encontrando GitExposed 
-
-
-. Primeiro passo varrer portas no endereço ip
-    
-1. usar wfuzz com lista common.txt
-    
-2.  git- clone [https://github.com/v0re/dirb/blob/master/wordlists/common.txt](https://github.com/v0re/dirb/blob/master/wordlists/common.txt)
-    
-
-wfuzz -c -z file,(wordlist”)  --hh 404 <http:// ip do site>/FUZZ
-
-Neste comando a opçao - -hh faz com que o wfuzz ignore o numero de palavras ou caracteres retornados pela resposta HTTP 404. Ou seja se a resposta HTTP 404 tiver um corpo de resposta especifico (como uma pagina de erro personalizada) o wfuzz não levara em cosideração o tamanho do corpo de resposta ao filtrar os resultados 
-
-wfuzz -c -z file,(wordlist”)  --hc 404 <http:// ip do site>/FUZZ
-
---hc 404 faz com quem o wfuzz ignore as respostas que retornaram o código de status HTTP 404(Not Found). isso signidfica que ele não exibira resultados onde a resposta do servidoe é 404
-  
-
-Para lista diretórios e pastas do site 
-  
-
-1. Após encontra o diretório /.git/ iremos baixar para nossa maquina usando a ferramenta git_dumper [https://github.com/arthaud/git-dumper](https://github.com/arthaud/git-dumper)
-    
-Comando para roda o git-dumper
-python3 git_dumper.py http:// IP da maquina / " nome do arquivo "
-
-Apos dar um dumper na nossa maquina iremos abrir o index.php
-
-Entraremos dentro da pasta git log
-
-E daremos um git show no hash ☢️
-
-
-
 ✅ Vulnerabilidade de Exposição de Repositório Git (.git exposed)
 O que é:
 
@@ -79,3 +44,40 @@ Vazamento de dados: Informações sensíveis, como código fonte, credenciais de
 Comprometimento de sistemas: Atacantes podem obter acesso não autorizado a sistemas críticos, como servidores, bancos de dados e APIs, explorando vulnerabilidades encontradas no código fonte ou utilizando credenciais vazadas.
 Interrupção de serviços: Atacantes podem causar interrupções de serviços, como indisponibilidade de websites, sistemas internos ou APIs, afetando a operação da empresa e a experiência dos clientes.
 Danos à reputação: A exposição de informações sensíveis e o comprometimento de sistemas podem causar danos à reputação da empresa, resultando em perda de clientes, processos judiciais e sanções regulatórias.
+
+
+Como encontrala.
+
+🔴 Primeiro passo varrer portas no endereço ip
+    
+1. usar wfuzz com lista common.txt
+    
+2.  git- clone [https://github.com/v0re/dirb/blob/master/wordlists/common.txt](https://github.com/v0re/dirb/blob/master/wordlists/common.txt)
+    
+
+wfuzz -c -z file,(wordlist”)  --hh 404 <http:// ip do site>/FUZZ
+
+Neste comando a opçao - -hh faz com que o wfuzz ignore o numero de palavras ou caracteres retornados pela resposta HTTP 404. Ou seja se a resposta HTTP 404 tiver um corpo de resposta especifico (como uma pagina de erro personalizada) o wfuzz não levara em cosideração o tamanho do corpo de resposta ao filtrar os resultados 
+
+wfuzz -c -z file,(wordlist”)  --hc 404 <http:// ip do site>/FUZZ
+
+--hc 404 faz com quem o wfuzz ignore as respostas que retornaram o código de status HTTP 404(Not Found). isso signidfica que ele não exibira resultados onde a resposta do servidoe é 404
+  
+
+Para lista diretórios e pastas do site 
+  
+
+1. Após encontra o diretório /.git/ iremos baixar para nossa maquina usando a ferramenta git_dumper [https://github.com/arthaud/git-dumper](https://github.com/arthaud/git-dumper)
+    
+Comando para roda o git-dumper
+python3 git_dumper.py http:// IP da maquina / " nome do arquivo "
+
+Apos dar um dumper na nossa maquina iremos abrir o index.php
+
+Entraremos dentro da pasta git log
+
+E daremos um git show no hash ☢️
+
+
+
+
