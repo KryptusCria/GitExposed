@@ -6,7 +6,7 @@ Encontrando GitExposed
     
 1. usar wfuzz com lista common.txt
     
-2.  git clone [https://github.com/v0re/dirb/blob/master/wordlists/common.txt](https://github.com/v0re/dirb/blob/master/wordlists/common.txt)
+2.  git- clone [https://github.com/v0re/dirb/blob/master/wordlists/common.txt](https://github.com/v0re/dirb/blob/master/wordlists/common.txt)
     
 
 wfuzz -c -z file,(wordlist”)  --hh 404 <http:// ip do site>/FUZZ
