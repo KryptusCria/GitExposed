@@ -11,7 +11,7 @@ Encontrando GitExposed
 
 wfuzz -c -z file,(wordlist”)  --hh 404 <http:// ip do site>/FUZZ
 
-Neste comando a opçao - -hh faz com que o wfuzz ignore o numero de palavras ou caracteres retornados pela resposta HTTP 404. Ou seja se a resposta HTTO 404 tiver um corpo de resposta especifico (como uma pagina de erro personalizada) o wfuzz não levara em cosideração o tamanho do corpo de resposta ao filtrar os resultados 
+Neste comando a opçao - -hh faz com que o wfuzz ignore o numero de palavras ou caracteres retornados pela resposta HTTP 404. Ou seja se a resposta HTTP 404 tiver um corpo de resposta especifico (como uma pagina de erro personalizada) o wfuzz não levara em cosideração o tamanho do corpo de resposta ao filtrar os resultados 
 
 wfuzz -c -z file,(wordlist”)  --hc 404 <http:// ip do site>/FUZZ
 
