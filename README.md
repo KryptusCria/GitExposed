@@ -28,9 +28,9 @@ python3 git_dumper.py http:// IP da maquina / " nome do arquivo "
 
 Apos dar um dumper na nossa maquina iremos abrir o index.php
 
-**1. entraremos dentro da pasta git log**
+Entraremos dentro da pasta git log
 
-E daremos um git show no hash
+E daremos um git show no hash ☢️
 
 ✅ Contramedidas para Prevenir a Exposição do.git
 1️⃣ Bloqueio de Acesso ao Diretório .gitno Servidor Web
