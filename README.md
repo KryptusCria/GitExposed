@@ -2,7 +2,7 @@
 Encontrando GitExposed 
 
 
-. Primeiro passo varre portas no endereço ip
+. Primeiro passo varrer portas no endereço ip
     
 1. usar wfuzz com lista common.txt
     
@@ -31,6 +31,8 @@ Apos dar um dumper na nossa maquina iremos abrir o index.php
 Entraremos dentro da pasta git log
 
 E daremos um git show no hash ☢️
+
+
 
 ✅ Contramedidas para Prevenir a Exposição do.git
 1️⃣ Bloqueio de Acesso ao Diretório .gitno Servidor Web
